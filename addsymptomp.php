@@ -2,8 +2,8 @@
 $dp = "firstsal_EasyMediLife";
 $user = $_POST["user"];
 $pass = $_POST["pass"];
-$name = ["symptom"];
-$description = ["description"];
+$name = $_POST["symptom"];
+$description = $_POST["description"];
 $host = "localhost";
 $con = mysqli_connect($host, $user, $pass, $dp);
 if($con)
