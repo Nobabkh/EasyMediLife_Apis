@@ -8,13 +8,13 @@ $host = "localhost";
 $con = mysqli_connect($host, $user, $pass, $dp);
 if($con)
 {
-    $res = $con->query("SELECT * FROM specialist WHERE name = '$doctor' AND symptoms = '$name'");
+    $res = $con->query("SELECT * FROM specialist WHERE name = '$doctor' AND symptoms IS NULL;");
     if($res->num_rows < 1)
     {
-        $res1 = $con->query("UPDATE specialist SET symptoms = '$name' WHERE name = '$doctor'");
+        $res1 = $con->query("UPDATE specialist SET symptoms = '$name' WHERE name = '$doctor';");
     }
     else{
-        $res2 = $con->query("INSERT INTO specialist (name, symptoms) VALUES ('$doctor', '$name')");
+        $res2 = $con->query("INSERT INTO specialist (name, symptoms) VALUES ('$doctor', '$name');");
     }
 }
 else
