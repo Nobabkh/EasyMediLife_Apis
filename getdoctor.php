@@ -14,7 +14,7 @@ if($con)
     while($row = $res->fetch_assoc())
     {
         $hosp = $row["hospital"];
-        $res1 = $con->query("SELECT name FROM specialist WHERE hospital = '$hosp'");
+        $res1 = $con->query("SELECT name FROM specialist WHERE hospital = '$hosp' and symptoms = '$symptoms'");
         while($row1 = $res1->fetch_assoc())
         {
             echo $row1["name"];
