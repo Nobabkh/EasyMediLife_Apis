@@ -16,9 +16,11 @@ if($con)
         if($res3->num_rows > 0)
         {
             $res1 = $con->query("UPDATE location SET hospital = '$hospital' WHERE district = '$dist' AND sub_dist = '$subdist';");
+            echo "successfull";
         }
         else{
             $res2 = $con->query("INSERT INTO location (district, sub_dist, hospital) VALUES ('$dist', '$subdist', '$hospital');");
+            echo "successfull";
         }
     }
     else

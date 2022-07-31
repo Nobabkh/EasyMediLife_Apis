@@ -2,8 +2,9 @@
 $dp = "firstsal_EasyMediLife";
 $user = $_POST["user"];
 $pass = $_POST["pass"];
-$name = $_POST["symptom"];
 $doctor = $_POST["doctor"];
+$name = $_POST["symptom"];
+$description = $_POST["description"];
 $host = "localhost";
 $con = mysqli_connect($host, $user, $pass, $dp);
 if($con)
@@ -12,9 +13,11 @@ if($con)
     if($res->num_rows < 1)
     {
         $res1 = $con->query("UPDATE specialist SET symptoms = '$name' WHERE name = '$doctor';");
+        $res2 = $con->query("INSERT INTO symptoms (name, description) VALUES ('$name', '$description');");
     }
     else{
-        $res2 = $con->query("INSERT INTO specialist (name, symptoms) VALUES ('$doctor', '$name');");
+        $res1 = $con->query("INSERT INTO specialist (name, symptoms) VALUES ('$doctor', '$name');");
+        $res2 = $con->query("INSERT INTO symptoms (name, description) VALUES ('$name', '$description');");
     }
 }
 else
